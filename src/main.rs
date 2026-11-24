@@ -1,6 +1,6 @@
 pub mod components;
 
-use components::button::{Button, ButtonVariant};
+use components::badge::Badge;
 use components::card::Card;
 use leptos::prelude::*;
 
@@ -12,7 +12,7 @@ fn Counter() -> impl IntoView {
         <Card title="Sapiens: A Brief History of Humankind"
         subtitle="xplores human evolution and how cognitive,
         agricultural, and scientific revolutions shaped modern".to_string()>
-            <Button label="Secondary" variant=ButtonVariant::Secondary/>
+        <Badge text="ongoing" />
         </Card>
         </div>
 

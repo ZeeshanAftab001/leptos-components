@@ -1,24 +1,24 @@
 pub mod components;
 
+use components::button::{Button, ButtonVariant};
+use components::card::Card;
 use leptos::prelude::*;
-use components::button::Button;
-use components::button::ButtonVariant;
 
 #[component]
 fn Counter() -> impl IntoView {
+    view! {
 
-    let (count, set_count) = signal(0);
-
-    view!{
-
-        <Button label="Click Me!" variant=ButtonVariant::Ghost on_click=Callback::new(move |_| leptos::logging::log!("{}", count.get()))/>
-        <h1>{move || count.get()}</h1>
-        <Button label="Increase" on_click=Callback::new(move |_| set_count.update(|x| *x+=1))/>
-        <Button label="Decrease" variant=ButtonVariant::Danger on_click=Callback::new(move |_| set_count.update(|x| *x-=1))/>
+        <div style="display:flex;flex-direction:row">
+        <Card title="Sapiens: A Brief History of Humankind"
+        subtitle="xplores human evolution and how cognitive,
+        agricultural, and scientific revolutions shaped modern".to_string()>
+            <Button label="Secondary" variant=ButtonVariant::Secondary/>
+        </Card>
+        </div>
 
     }
 }
 
-fn main(){
+fn main() {
     leptos::mount::mount_to_body(Counter);
 }
